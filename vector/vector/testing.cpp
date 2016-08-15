@@ -23,13 +23,14 @@ int main() {
 	(mat * mat).printMatrix();
 	mat.printMatrix();
 
-	//	mat.setTranslate();
-	/*mat.setTranslate( { { 1.0, 0.0, 0.0, 0.0, },
-						{ 1.0, 0.0, 0.0, 0.0, },
-						{ 1.0, 0.0, 0.0, 0.0, },
-						{ 1.0, 0.0, 0.0, 0.0, } } );
-	*/
-	
+	Vec4f newVec = { 0, 1, 0 };
+	float simpleRotator[4] = { 90, 1, 0, 0 };
+	Matrix44f newMat;
+	newMat.setRotate( simpleRotator );
+	cout << "normalized vector: " << newVec.normalize() << endl;
+	newVec * newMat;
+	cout << "normalized vector: " << newVec.normalize() << endl;
+
 	int input;
 	cin >> input;
 }

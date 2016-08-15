@@ -2,6 +2,7 @@
 #include <iostream>
 #include <math.h>
 #include <iomanip>
+#define PI 3.14159265
 using namespace std;
 
 Matrix44f::Matrix44f() {
@@ -64,8 +65,9 @@ Matrix44f& Matrix44f::setTranslate( float translate[3] ) {
 
 Matrix44f& Matrix44f::setRotate( float rotate[4] ) {
 	// rotate = { angle, x, y, z };
-	float cosTheta = cos( rotate[0] );
-	float sinTheta = sin( rotate[0] );
+	float radians = rotate[0] * ((PI) / 180);
+	float cosTheta = cos( radians );
+	float sinTheta = sin( radians );
 	m[0][0] = rotate[1] * rotate[1] * (1 - cosTheta) + cosTheta;
 	m[0][1] = rotate[1] * rotate[2] * (1 - cosTheta) - rotate[3] * sinTheta;
 	m[0][2] = rotate[1] * rotate[3] * (1 - cosTheta) + rotate[2] * sinTheta;
